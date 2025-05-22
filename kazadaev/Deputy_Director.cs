@@ -178,6 +178,7 @@ namespace kazadaev
             dataGridView1.Columns[5].Visible = false;
             dataGridView1.Columns[6].Visible = false;
             dataGridView1.Columns[7].Visible = false;
+            activeEntity = ActiveEntity.Orders;
         }
 
         private void bt_min_Click(object sender, EventArgs e)
