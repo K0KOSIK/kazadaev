@@ -49,11 +49,35 @@ namespace kazadaev
             catch (Exception ex)
             {
                 MessageBox.Show("Неправильный логин или пароль:");
+                LogException(ex);
                 textBox1.Text = "";
                 textBox2.Text = "";
             }
         }
+        public static void LogException(Exception ex)
+        {
+            string logDirectory = Path.Combine(
+                Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
+                "MyApp",
+                "Logs"
+            );
 
+            string logPath = Path.Combine(logDirectory, "errors.log");
+
+            try
+            {
+                Directory.CreateDirectory(logDirectory);
+
+                File.AppendAllText(
+                    logPath,
+                    $"[{DateTime.Now:yyyy-MM-dd HH:mm:ss}] Исключение:\n{ex}\n\n"
+                );
+            }
+            catch (Exception writeEx)
+            {
+                MessageBox.Show($"Ошибка записи лога: {writeEx.Message}");
+            }
+        }
         private void Avtorisation_Load(object sender, EventArgs e)
         {
 

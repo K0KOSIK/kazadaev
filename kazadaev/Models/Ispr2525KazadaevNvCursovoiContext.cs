@@ -85,7 +85,7 @@ public partial class Ispr2525KazadaevNvCursovoiContext : DbContext
 
             entity.Property(e => e.IdOrders).HasColumnName("idOrders");
             entity.Property(e => e.CustomersIdCustomers).HasColumnName("Customers_idCustomers");
-            entity.Property(e => e.Orderdate).HasColumnType("datetime");
+            entity.Property(e => e.Orderdate).HasMaxLength(50);
             entity.Property(e => e.StatusIdStatus).HasColumnName("Status_idStatus");
             entity.Property(e => e.TotalAmount).HasPrecision(10, 2);
 

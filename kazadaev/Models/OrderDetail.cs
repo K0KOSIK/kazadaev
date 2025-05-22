@@ -7,7 +7,7 @@ public partial class OrderDetail
 {
     public int IdOrderDetails { get; set; }
 
-    public int Quantity { get; set; } 
+    public int Quantity { get; set; }
 
     public int Price { get; set; }
 

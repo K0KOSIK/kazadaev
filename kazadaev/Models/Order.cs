@@ -7,9 +7,9 @@ public partial class Order
 {
     public int IdOrders { get; set; }
 
-    public string Orderdate { get; set; }
+    public string Orderdate { get; set; } = null!;
 
-    public int TotalAmount { get; set; }
+    public decimal TotalAmount { get; set; }
 
     public int StatusIdStatus { get; set; }
 
