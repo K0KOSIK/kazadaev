@@ -160,6 +160,7 @@
             Controls.Add(textBox1);
             Controls.Add(business);
             Name = "Avtorisation";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Avtorisation";
             Load += Avtorisation_Load;
             panel1.ResumeLayout(false);

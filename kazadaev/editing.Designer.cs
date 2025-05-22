@@ -179,6 +179,7 @@
             Controls.Add(input);
             Controls.Add(save_click);
             Controls.Add(cancellation);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "editing";
             Text = "editing";
             Load += editing_Load;

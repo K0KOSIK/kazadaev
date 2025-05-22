@@ -239,7 +239,9 @@
             Controls.Add(bt_add);
             Controls.Add(panel1);
             Controls.Add(dataGridView1);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "Admin";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Admin";
             Load += Admin_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();

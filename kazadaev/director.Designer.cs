@@ -236,7 +236,9 @@
             Controls.Add(bt_add);
             Controls.Add(panel1);
             Controls.Add(dataGridView1);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "director";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "director";
             Load += director_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();

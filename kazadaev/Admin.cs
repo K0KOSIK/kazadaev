@@ -161,7 +161,6 @@ namespace kazadaev
             dataGridView1.DataSource = context.Users.ToList();
             activeEntity = ActiveEntity.Users;
             dataGridView1.Columns[4].Visible = false;
-            //dataGridView1.Columns[5].Visible = false;
         }
 
         private void Status_Click(object sender, EventArgs e)
@@ -178,7 +177,6 @@ namespace kazadaev
             Ispr2525KazadaevNvCursovoiContext context = new();
             dataGridView1.DataSource = context.Roles.ToList();
             activeEntity = ActiveEntity.Roles;
-            //dataGridView1.Columns[3].Visible = false;
         }
 
         private void Product_Click(object sender, EventArgs e)
@@ -232,7 +230,6 @@ namespace kazadaev
             dataGridView1.DataSource = context.Users.ToList();
             activeEntity = ActiveEntity.Users;
             dataGridView1.Columns[4].Visible = false;
-            //dataGridView1.Columns[5].Visible = false;
         }
 
         private void bt_exit_Click(object sender, EventArgs e)

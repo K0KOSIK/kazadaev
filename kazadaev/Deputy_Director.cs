@@ -15,6 +15,8 @@ namespace kazadaev
     public partial class Deputy_Director : Form
     {
         private Avtorisation _form1;
+        public ActiveEntity activeEntity;
+        public IsEdit isEdit;
         public Deputy_Director(Avtorisation form1)
         {
             InitializeComponent();
@@ -126,42 +128,56 @@ namespace kazadaev
         {
             Ispr2525KazadaevNvCursovoiContext context = new();
             dataGridView1.DataSource = context.Orders.ToList();
+            dataGridView1.Columns[5].Visible = false;
+            dataGridView1.Columns[6].Visible = false;
+            dataGridView1.Columns[7].Visible = false;
         }
 
         private void Status_Click(object sender, EventArgs e)
         {
             Ispr2525KazadaevNvCursovoiContext context = new();
             dataGridView1.DataSource = context.Statuses.ToList();
+            dataGridView1.Columns[2].Visible = false;
         }
 
         private void Product_Click(object sender, EventArgs e)
         {
             Ispr2525KazadaevNvCursovoiContext context = new();
             dataGridView1.DataSource = context.Products.ToList();
+            dataGridView1.Columns[5].Visible = false;
+            dataGridView1.Columns[6].Visible = false;
         }
 
         private void OrderDetails_Click(object sender, EventArgs e)
         {
             Ispr2525KazadaevNvCursovoiContext context = new();
             dataGridView1.DataSource = context.OrderDetails.ToList();
+            dataGridView1.Columns[5].Visible = false;
+            dataGridView1.Columns[6].Visible = false;
         }
 
         private void Customers_Click(object sender, EventArgs e)
         {
             Ispr2525KazadaevNvCursovoiContext context = new();
             dataGridView1.DataSource = context.Customers.ToList();
+            dataGridView1.Columns[5].Visible = false;
+            dataGridView1.Columns[6].Visible = false;
         }
 
         private void Categories_Click(object sender, EventArgs e)
         {
             Ispr2525KazadaevNvCursovoiContext context = new();
             dataGridView1.DataSource = context.Categories.ToList();
+            dataGridView1.Columns[3].Visible = false;
         }
 
         private void Deputy_Director_Load(object sender, EventArgs e)
         {
             Ispr2525KazadaevNvCursovoiContext context = new();
             dataGridView1.DataSource = context.Orders.ToList();
+            dataGridView1.Columns[5].Visible = false;
+            dataGridView1.Columns[6].Visible = false;
+            dataGridView1.Columns[7].Visible = false;
         }
 
         private void bt_min_Click(object sender, EventArgs e)
@@ -184,6 +200,537 @@ namespace kazadaev
         private void bt_exit_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void bt_delete_Click(object sender, EventArgs e)
+        {
+            if (activeEntity == ActiveEntity.Statuses)
+            {
+                if (dataGridView1.SelectedRows.Count > 0)
+                {
+                    var result = MessageBox.Show("Удалить?", "?", MessageBoxButtons.YesNo);
+                    if (result == DialogResult.Yes)
+                    {
+                        Ispr2525KazadaevNvCursovoiContext contex = new();
+                        var Statuses = contex.Statuses.Where(x => x.IdStatus == (int)dataGridView1.SelectedRows[0].Cells[0].Value);
+                        try
+                        {
+                            Statuses.ExecuteDelete();
+                            contex.SaveChanges();
+                            UpdateInfo();
+                            dataGridView1.DataSource = contex.Statuses.ToList();
+                            dataGridView1.Columns[2].Visible = false;
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Не получилось удалить: " + ex.Message);
+                        }
+                    }
+
+                }
+                else
+                {
+                    MessageBox.Show("Выберете строчку для удаления");
+                }
+            }
+            if (activeEntity == ActiveEntity.Products)
+            {
+                if (dataGridView1.SelectedRows.Count > 0)
+                {
+                    var result = MessageBox.Show("Удалить?", "?", MessageBoxButtons.YesNo);
+                    if (result == DialogResult.Yes)
+                    {
+                        Ispr2525KazadaevNvCursovoiContext contex3 = new();
+                        var Products = contex3.Products.Where(x => x.IdProduct == (int)dataGridView1.SelectedRows[0].Cells[0].Value);
+                        try
+                        {
+                            Products.ExecuteDelete();
+                            contex3.SaveChanges();
+                            UpdateInfo();
+                            dataGridView1.DataSource = contex3.Products.ToList();
+                            dataGridView1.Columns[5].Visible = false;
+                            dataGridView1.Columns[6].Visible = false;
+
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Не получилось удалить: " + ex.Message);
+                        }
+                    }
+
+                }
+                else
+                {
+                    MessageBox.Show("Выберете строчку для удаления");
+                }
+
+            }
+
+            if (activeEntity == ActiveEntity.Orders)
+            {
+                if (dataGridView1.SelectedRows.Count > 0)
+                {
+                    var result = MessageBox.Show("Удалить?", "?", MessageBoxButtons.YesNo);
+                    if (result == DialogResult.Yes)
+                    {
+                        Ispr2525KazadaevNvCursovoiContext contex4 = new();
+                        var Orders = contex4.Orders.Where(x => x.IdOrders == (int)dataGridView1.SelectedRows[0].Cells[0].Value);
+                        try
+                        {
+                            Orders.ExecuteDelete();
+                            contex4.SaveChanges();
+                            UpdateInfo();
+                            dataGridView1.DataSource = contex4.Orders.ToList();
+                            dataGridView1.Columns[5].Visible = false;
+                            dataGridView1.Columns[6].Visible = false;
+                            dataGridView1.Columns[7].Visible = false;
+
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Не получилось удалить: " + ex.Message);
+                        }
+                    }
+
+                }
+                else
+                {
+                    MessageBox.Show("Выберете строчку для удаления");
+                }
+
+            }
+
+            if (activeEntity == ActiveEntity.OrderDetails)
+            {
+                if (dataGridView1.SelectedRows.Count > 0)
+                {
+                    var result = MessageBox.Show("Удалить?", "?", MessageBoxButtons.YesNo);
+                    if (result == DialogResult.Yes)
+                    {
+                        Ispr2525KazadaevNvCursovoiContext contex5 = new();
+                        var OrderDetails = contex5.OrderDetails.Where(x => x.IdOrderDetails == (int)dataGridView1.SelectedRows[0].Cells[0].Value);
+                        try
+                        {
+                            OrderDetails.ExecuteDelete();
+                            contex5.SaveChanges();
+                            UpdateInfo();
+                            dataGridView1.DataSource = contex5.OrderDetails.ToList();
+                            dataGridView1.Columns[5].Visible = false;
+                            dataGridView1.Columns[6].Visible = false;
+
+
+
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Не получилось удалить: " + ex.Message);
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Выберете строчку для удаления");
+                }
+
+            }
+
+            if (activeEntity == ActiveEntity.Customers)
+            {
+                if (dataGridView1.SelectedRows.Count > 0)
+                {
+                    var result = MessageBox.Show("Удалить?", "?", MessageBoxButtons.YesNo);
+                    if (result == DialogResult.Yes)
+                    {
+                        Ispr2525KazadaevNvCursovoiContext contex6 = new();
+                        var Customers = contex6.Customers.Where(x => x.IdCustomers == (int)dataGridView1.SelectedRows[0].Cells[0].Value);
+                        try
+                        {
+                            Customers.ExecuteDelete();
+                            contex6.SaveChanges();
+                            UpdateInfo();
+                            dataGridView1.DataSource = contex6.Customers.ToList();
+                            dataGridView1.Columns[5].Visible = false;
+                            dataGridView1.Columns[6].Visible = false;
+
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Не получилось удалить: " + ex.Message);
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Выберете строчку для удаления");
+                }
+
+            }
+            if (activeEntity == ActiveEntity.Categories)
+            {
+                if (dataGridView1.SelectedRows.Count > 0)
+                {
+                    var result = MessageBox.Show("Удалить?", "?", MessageBoxButtons.YesNo);
+                    if (result == DialogResult.Yes)
+                    {
+                        Ispr2525KazadaevNvCursovoiContext contex6 = new();
+                        var Categories = contex6.Categories.Where(x => x.IdCategories == (int)dataGridView1.SelectedRows[0].Cells[0].Value);
+                        try
+                        {
+                            Categories.ExecuteDelete();
+                            contex6.SaveChanges();
+                            UpdateInfo();
+                            dataGridView1.DataSource = contex6.Categories.ToList();
+                            dataGridView1.Columns[3].Visible = false;
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Не получилось удалить: " + ex.Message);
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Выберете строчку для удаления");
+                }
+            }
+        }
+
+        private void bt_edit_Click(object sender, EventArgs e)
+        {
+            isEdit = IsEdit.Y;
+            if (activeEntity == ActiveEntity.Statuses)
+            {
+                try
+                {
+                    var Status = new Models.Status
+                    {
+                        IdStatus = (int)dataGridView1.SelectedRows[0].Cells[0].Value,
+                        Status1 = (string)dataGridView1.SelectedRows[0].Cells[1].Value,
+                    };
+                    this.Hide();
+                    var editing = new editing(ActiveEntity.Statuses, Status);
+                    editing.isEdit = isEdit;
+                    if (editing.ShowDialog() == DialogResult.OK)
+                    {
+                        Ispr2525KazadaevNvCursovoiContext context1 = new();
+                        dataGridView1.DataSource = context1.Statuses.ToList();
+                        dataGridView1.Refresh();
+                        this.Show();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Не получилось изменить: " + ex.Message);
+                }
+            }
+            if (activeEntity == ActiveEntity.Products)
+            {
+                try
+                {
+                    var Products = new Product
+                    {
+                        IdProduct = (int)dataGridView1.SelectedRows[0].Cells[0].Value,
+                        Productname = (string)dataGridView1.SelectedRows[0].Cells[1].Value,
+                        Price = (int)dataGridView1.SelectedRows[0].Cells[2].Value,
+                        StockQuantity = (int)dataGridView1.SelectedRows[0].Cells[3].Value,
+                        CategoriesIdCategories = (int)dataGridView1.SelectedRows[0].Cells[4].Value,
+                    };
+                    this.Hide();
+                    var editing = new editing(ActiveEntity.Products, Products);
+                    editing.isEdit = isEdit;
+                    if (editing.ShowDialog() == DialogResult.OK)
+                    {
+                        Ispr2525KazadaevNvCursovoiContext context3 = new();
+                        dataGridView1.DataSource = context3.Products.ToList();
+                        dataGridView1.Refresh();
+                        this.Show();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Не получилось изменить: " + ex.Message);
+                }
+            }
+            if (activeEntity == ActiveEntity.Orders)
+            {
+                try
+                {
+                    var Orders = new Order
+                    {
+                        IdOrders = (int)dataGridView1.SelectedRows[0].Cells[0].Value,
+                        Orderdate = (string)dataGridView1.SelectedRows[0].Cells[1].Value,
+                        TotalAmount = (int)dataGridView1.SelectedRows[0].Cells[2].Value,
+                        StatusIdStatus = (int)dataGridView1.SelectedRows[0].Cells[3].Value,
+                        CustomersIdCustomers = (int)dataGridView1.SelectedRows[0].Cells[4].Value,
+                    };
+                    this.Hide();
+                    var editing = new editing(ActiveEntity.Orders, Orders);
+                    editing.isEdit = isEdit;
+                    if (editing.ShowDialog() == DialogResult.OK)
+                    {
+                        Ispr2525KazadaevNvCursovoiContext context4 = new();
+                        dataGridView1.DataSource = context4.Orders.ToList();
+                        dataGridView1.Refresh();
+                        this.Show();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Не получилось изменить: " + ex.Message);
+                }
+            }
+            if (activeEntity == ActiveEntity.OrderDetails)
+            {
+                try
+                {
+                    var OrderDetails = new OrderDetail
+                    {
+                        IdOrderDetails = (int)dataGridView1.SelectedRows[0].Cells[0].Value,
+                        Quantity = (int)dataGridView1.SelectedRows[0].Cells[1].Value,
+                        Price = (int)dataGridView1.SelectedRows[0].Cells[2].Value,
+                        ProductIdProduct = (int)dataGridView1.SelectedRows[0].Cells[3].Value,
+                        OrdersIdOrders = (int)dataGridView1.SelectedRows[0].Cells[4].Value,
+                    };
+                    this.Hide();
+                    var editing = new editing(ActiveEntity.OrderDetails, OrderDetails);
+                    editing.isEdit = isEdit;
+                    if (editing.ShowDialog() == DialogResult.OK)
+                    {
+                        Ispr2525KazadaevNvCursovoiContext context5 = new();
+                        dataGridView1.DataSource = context5.OrderDetails.ToList();
+                        dataGridView1.Refresh();
+                        this.Show();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Не получилось изменить: " + ex.Message);
+                }
+            }
+            if (activeEntity == ActiveEntity.Customers)
+            {
+                try
+                {
+                    var Customers = new Customer
+                    {
+                        IdCustomers = (int)dataGridView1.SelectedRows[0].Cells[0].Value,
+                        Name = (string)dataGridView1.SelectedRows[0].Cells[1].Value,
+                        Phone = (string)dataGridView1.SelectedRows[0].Cells[2].Value,
+                        Email = (string)dataGridView1.SelectedRows[0].Cells[3].Value,
+                        UsersIdUsers = (int)dataGridView1.SelectedRows[0].Cells[4].Value,
+                    };
+                    this.Hide();
+                    var editing = new editing(ActiveEntity.Customers, Customers);
+                    editing.isEdit = isEdit;
+                    if (editing.ShowDialog() == DialogResult.OK)
+                    {
+                        Ispr2525KazadaevNvCursovoiContext context6 = new();
+                        dataGridView1.DataSource = context6.Customers.ToList();
+                        dataGridView1.Refresh();
+                        this.Show();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Не получилось изменить: " + ex.Message);
+                }
+            }
+            if (activeEntity == ActiveEntity.Categories)
+            {
+                try
+                {
+                    var Categories = new Category
+                    {
+                        IdCategories = (int)dataGridView1.SelectedRows[0].Cells[0].Value,
+                        CategoriesName = (string)dataGridView1.SelectedRows[0].Cells[1].Value,
+                        Descriptions = (string)dataGridView1.SelectedRows[0].Cells[2].Value,
+                    };
+                    this.Hide();
+                    var editing = new editing(ActiveEntity.Categories, Categories);
+                    editing.isEdit = isEdit;
+                    if (editing.ShowDialog() == DialogResult.OK)
+                    {
+                        Ispr2525KazadaevNvCursovoiContext context6 = new();
+                        dataGridView1.DataSource = context6.Categories.ToList();
+                        dataGridView1.Refresh();
+                        this.Show();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Не получилось изменить: " + ex.Message);
+                }
+            }
+        }
+
+        private void bt_add_Click(object sender, EventArgs e)
+        {
+            isEdit = IsEdit.N;
+            if (activeEntity == ActiveEntity.Statuses)
+            {
+                try
+                {
+                    var Status = new Models.Status
+                    {
+                        IdStatus = (int)dataGridView1.Rows[dataGridView1.RowCount - 1].Cells[0].Value + 1,
+                        Status1 = "",
+                    };
+                    this.Hide();
+                    var editing = new editing(ActiveEntity.Statuses, Status);
+                    editing.isEdit = isEdit;
+                    if (editing.ShowDialog() == DialogResult.OK)
+                    {
+                        Ispr2525KazadaevNvCursovoiContext context1 = new();
+                        dataGridView1.DataSource = context1.Statuses.ToList();
+                        dataGridView1.Refresh();
+                        this.Show();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Не получилось добавить: " + ex.Message);
+                }
+            }
+            if (activeEntity == ActiveEntity.Products)
+            {
+                try
+                {
+                    var Products = new Product
+                    {
+                        IdProduct = (int)dataGridView1.Rows[dataGridView1.RowCount - 1].Cells[0].Value + 1,
+                        Productname = "",
+                        Price = 0,
+                        StockQuantity = 0,
+                        CategoriesIdCategories = 0,
+                    };
+                    this.Hide();
+                    var editing = new editing(ActiveEntity.Products, Products);
+                    editing.isEdit = isEdit;
+                    if (editing.ShowDialog() == DialogResult.OK)
+                    {
+                        Ispr2525KazadaevNvCursovoiContext context3 = new();
+                        dataGridView1.DataSource = context3.Products.ToList();
+                        dataGridView1.Refresh();
+                        this.Show();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Не получилось добавить: " + ex.Message);
+                }
+            }
+            if (activeEntity == ActiveEntity.Orders)
+            {
+                try
+                {
+                    var Orders = new Order
+                    {
+                        IdOrders = (int)dataGridView1.Rows[dataGridView1.RowCount - 1].Cells[0].Value + 1,
+                        Orderdate = "",
+                        TotalAmount = 0,
+                        StatusIdStatus = 0,
+                        CustomersIdCustomers = 0,
+                    };
+                    this.Hide();
+                    var editing = new editing(ActiveEntity.Orders, Orders);
+                    editing.isEdit = isEdit;
+                    if (editing.ShowDialog() == DialogResult.OK)
+                    {
+                        Ispr2525KazadaevNvCursovoiContext context4 = new();
+                        dataGridView1.DataSource = context4.Orders.ToList();
+                        dataGridView1.Refresh();
+                        this.Show();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Не получилось добавить: " + ex.Message);
+                }
+            }
+            if (activeEntity == ActiveEntity.OrderDetails)
+            {
+                try
+                {
+                    var OrderDetails = new OrderDetail
+                    {
+                        IdOrderDetails = (int)dataGridView1.Rows[dataGridView1.RowCount - 1].Cells[0].Value + 1,
+                        Quantity = 0,
+                        Price = 0,
+                        ProductIdProduct = 0,
+                        OrdersIdOrders = 0,
+                    };
+                    this.Hide();
+                    var editing = new editing(ActiveEntity.OrderDetails, OrderDetails);
+                    editing.isEdit = isEdit;
+                    if (editing.ShowDialog() == DialogResult.OK)
+                    {
+                        Ispr2525KazadaevNvCursovoiContext context5 = new();
+                        dataGridView1.DataSource = context5.OrderDetails.ToList();
+                        dataGridView1.Refresh();
+                        this.Show();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Не получилось добавить: " + ex.Message);
+                }
+            }
+            if (activeEntity == ActiveEntity.Customers)
+            {
+                try
+                {
+                    var Customers = new Customer
+                    {
+                        IdCustomers = (int)dataGridView1.Rows[dataGridView1.RowCount - 1].Cells[0].Value + 1,
+                        Name = "",
+                        Phone = "",
+                        Email = "",
+                        UsersIdUsers = 0,
+
+                    };
+                    this.Hide();
+                    var editing = new editing(ActiveEntity.Customers, Customers);
+                    editing.isEdit = isEdit;
+                    if (editing.ShowDialog() == DialogResult.OK)
+                    {
+                        Ispr2525KazadaevNvCursovoiContext context6 = new();
+                        dataGridView1.DataSource = context6.Customers.ToList();
+                        dataGridView1.Refresh();
+                        this.Show();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Не получилось добавить: " + ex.Message);
+                }
+            }
+            if (activeEntity == ActiveEntity.Categories)
+            {
+                try
+                {
+                    var Categories = new Category
+                    {
+                        IdCategories = (int)dataGridView1.Rows[dataGridView1.RowCount - 1].Cells[0].Value + 1,
+                        CategoriesName = "",
+                        Descriptions = "",
+
+                    };
+                    this.Hide();
+                    var editing = new editing(ActiveEntity.Categories, Categories);
+                    editing.isEdit = isEdit;
+                    if (editing.ShowDialog() == DialogResult.OK)
+                    {
+                        Ispr2525KazadaevNvCursovoiContext context6 = new();
+                        dataGridView1.DataSource = context6.Categories.ToList();
+                        dataGridView1.Refresh();
+                        this.Show();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Не получилось добавить: " + ex.Message);
+                }
+            }
         }
     }
 }

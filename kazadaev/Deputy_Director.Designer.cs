@@ -178,6 +178,7 @@
             bt_delete.TabIndex = 7;
             bt_delete.Text = "Удалить";
             bt_delete.UseVisualStyleBackColor = false;
+            bt_delete.Click += bt_delete_Click;
             // 
             // bt_edit
             // 
@@ -188,6 +189,7 @@
             bt_edit.TabIndex = 6;
             bt_edit.Text = "Изменить";
             bt_edit.UseVisualStyleBackColor = false;
+            bt_edit.Click += bt_edit_Click;
             // 
             // bt_add
             // 
@@ -198,6 +200,7 @@
             bt_add.TabIndex = 5;
             bt_add.Text = "Добавить";
             bt_add.UseVisualStyleBackColor = false;
+            bt_add.Click += bt_add_Click;
             // 
             // Deputy_Director
             // 
@@ -210,7 +213,9 @@
             Controls.Add(bt_add);
             Controls.Add(panel1);
             Controls.Add(dataGridView1);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "Deputy_Director";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Deputy_Director";
             Load += Deputy_Director_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
