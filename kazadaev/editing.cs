@@ -127,12 +127,30 @@ namespace kazadaev
             input.DataBindings.Add("Text", user, nameof(user.IdUsers));
             input2.DataBindings.Add("Text", user, nameof(user.UsersName));
             input3.DataBindings.Add("Text", user, nameof(user.Password));
-            input4.DataBindings.Add("Text", user, nameof(user.Role));
+            domainUpDown2.DataBindings.Add("Text", user, nameof(user.Role));
+            input5.Visible = false;
+            inputs5.Visible = false;
+            input4.Visible = false;
+            domainUpDown1.Visible = false;
+            List<string> statesuser = new List<string>
+        {
+            "Администратор", "зам директора", "директор",
+        };
+            domainUpDown2.Items.Clear();
+            domainUpDown2.Items.AddRange(statesuser);
         }
         private void BindStatuses(Models.Status status)
         {
             input.DataBindings.Add("Text", status, nameof(status.IdStatus));
             input2.DataBindings.Add("Text", status, nameof(status.Status1));
+            input3.Visible = false;
+            input4.Visible = false;
+            input5.Visible = false;
+            inputs3.Visible = false;
+            inputs4.Visible = false;
+            inputs5.Visible = false;
+            domainUpDown1.Visible = false;
+            domainUpDown2.Visible = false;
         }
         private void BindProducts(Product product)
         {
@@ -141,12 +159,26 @@ namespace kazadaev
             input3.DataBindings.Add("Text", product, nameof(product.Price));
             input4.DataBindings.Add("Text", product, nameof(product.StockQuantity));
             input5.DataBindings.Add("Text", product, nameof(product.CategoriesIdCategories));
+            domainUpDown1.Visible = false;
+            domainUpDown2.Visible = false;
         }
         private void BindRoles(Role roles)
         {
             input.DataBindings.Add("Text", roles, nameof(roles.IdRole));
-            input2.DataBindings.Add("Text", roles, nameof(roles.Role1));
+            domainUpDown1.DataBindings.Add("Text", roles, nameof(roles.Role1));
             input3.DataBindings.Add("Text", roles, nameof(roles.UsersIdUsers));
+            input4.Visible = false;
+            input5.Visible = false;
+            inputs4.Visible = false;
+            inputs5.Visible = false;
+            input2.Visible = false;
+            domainUpDown2.Visible = false;
+            List<string> statesuser = new List<string>
+        {
+            "Администратор", "зам директора", "директор",
+        };
+            domainUpDown1.Items.Clear();
+            domainUpDown1.Items.AddRange(statesuser);
         }
         private void BindOrders(Order order)
         {
@@ -155,6 +187,8 @@ namespace kazadaev
             input3.DataBindings.Add("Text", order, nameof(order.TotalAmount));
             input4.DataBindings.Add("Text", order, nameof(order.StatusIdStatus));
             input5.DataBindings.Add("Text", order, nameof(order.CustomersIdCustomers));
+            domainUpDown1.Visible = false;
+            domainUpDown2.Visible = false;
         }
         private void BindOrderDetails(OrderDetail orderdetail)
         {
@@ -163,6 +197,8 @@ namespace kazadaev
             input3.DataBindings.Add("Text", orderdetail, nameof(orderdetail.Price));
             input4.DataBindings.Add("Text", orderdetail, nameof(orderdetail.ProductIdProduct));
             input5.DataBindings.Add("Text", orderdetail, nameof(orderdetail.OrdersIdOrders));
+            domainUpDown1.Visible = false;
+            domainUpDown2.Visible = false;
         }
         private void BindCustomers(Customer customer)
         {
@@ -171,12 +207,20 @@ namespace kazadaev
             input3.DataBindings.Add("Text", customer, nameof(customer.Phone));
             input4.DataBindings.Add("Text", customer, nameof(customer.Email));
             input5.DataBindings.Add("Text", customer, nameof(customer.UsersIdUsers));
+            domainUpDown1.Visible = false;
+            domainUpDown2.Visible = false;
         }
         private void BindCategories(Category category)
         {
             input.DataBindings.Add("Text", category, nameof(category.IdCategories));
             input2.DataBindings.Add("Text", category, nameof(category.CategoriesName));
             input3.DataBindings.Add("Text", category, nameof(category.Descriptions));
+            input4.Visible = false;
+            input5.Visible = false;
+            input4.Visible = false;
+            inputs5.Visible = false;
+            domainUpDown1.Visible = false;
+            domainUpDown2.Visible = false;
         }
 
         private void save_click_Click(object sender, EventArgs e)
@@ -282,7 +326,7 @@ namespace kazadaev
                 case ActiveEntity.OrderDetails:
                     OrderDetail OrderDetail = new();
                     OrderDetail.IdOrderDetails = Convert.ToInt32(input.Text);
-                    OrderDetail.Quantity = Convert.ToInt32 (input2.Text);
+                    OrderDetail.Quantity = Convert.ToInt32(input2.Text);
                     OrderDetail.Price = Convert.ToInt32(input3.Text);
                     OrderDetail.ProductIdProduct = Convert.ToInt32(input4.Text);
                     if (Convert.ToInt32(input4.Text) < 1 || Convert.ToInt32(input4.Text) > 3)
@@ -394,6 +438,11 @@ namespace kazadaev
             }
             this.DialogResult = DialogResult.OK;
             this.Close();
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

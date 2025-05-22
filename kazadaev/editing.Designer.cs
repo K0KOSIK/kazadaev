@@ -32,14 +32,16 @@
             save_click = new Button();
             input = new TextBox();
             input2 = new TextBox();
-            label1 = new Label();
-            label2 = new Label();
+            inputs1 = new Label();
+            inputs2 = new Label();
             input3 = new TextBox();
             input4 = new TextBox();
             input5 = new TextBox();
-            label3 = new Label();
-            label4 = new Label();
-            label5 = new Label();
+            inputs3 = new Label();
+            inputs4 = new Label();
+            inputs5 = new Label();
+            domainUpDown1 = new DomainUpDown();
+            domainUpDown2 = new DomainUpDown();
             SuspendLayout();
             // 
             // cancellation
@@ -76,23 +78,23 @@
             input2.Size = new Size(100, 23);
             input2.TabIndex = 3;
             // 
-            // label1
+            // inputs1
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(41, 42);
-            label1.Name = "label1";
-            label1.Size = new Size(38, 15);
-            label1.TabIndex = 4;
-            label1.Text = "label1";
+            inputs1.AutoSize = true;
+            inputs1.Location = new Point(41, 42);
+            inputs1.Name = "inputs1";
+            inputs1.Size = new Size(40, 15);
+            inputs1.TabIndex = 4;
+            inputs1.Text = "inputs";
             // 
-            // label2
+            // inputs2
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(41, 93);
-            label2.Name = "label2";
-            label2.Size = new Size(38, 15);
-            label2.TabIndex = 5;
-            label2.Text = "label2";
+            inputs2.AutoSize = true;
+            inputs2.Location = new Point(41, 93);
+            inputs2.Name = "inputs2";
+            inputs2.Size = new Size(40, 15);
+            inputs2.TabIndex = 5;
+            inputs2.Text = "inputs";
             // 
             // input3
             // 
@@ -115,32 +117,47 @@
             input5.Size = new Size(100, 23);
             input5.TabIndex = 8;
             // 
-            // label3
+            // inputs3
             // 
-            label3.AutoSize = true;
-            label3.Location = new Point(234, 42);
-            label3.Name = "label3";
-            label3.Size = new Size(38, 15);
-            label3.TabIndex = 9;
-            label3.Text = "label3";
+            inputs3.AutoSize = true;
+            inputs3.Location = new Point(234, 42);
+            inputs3.Name = "inputs3";
+            inputs3.Size = new Size(40, 15);
+            inputs3.TabIndex = 9;
+            inputs3.Text = "inputs";
+            inputs3.Click += label3_Click;
             // 
-            // label4
+            // inputs4
             // 
-            label4.AutoSize = true;
-            label4.Location = new Point(234, 93);
-            label4.Name = "label4";
-            label4.Size = new Size(38, 15);
-            label4.TabIndex = 10;
-            label4.Text = "label4";
+            inputs4.AutoSize = true;
+            inputs4.Location = new Point(234, 93);
+            inputs4.Name = "inputs4";
+            inputs4.Size = new Size(40, 15);
+            inputs4.TabIndex = 10;
+            inputs4.Text = "inputs";
             // 
-            // label5
+            // inputs5
             // 
-            label5.AutoSize = true;
-            label5.Location = new Point(397, 42);
-            label5.Name = "label5";
-            label5.Size = new Size(38, 15);
-            label5.TabIndex = 11;
-            label5.Text = "label5";
+            inputs5.AutoSize = true;
+            inputs5.Location = new Point(397, 42);
+            inputs5.Name = "inputs5";
+            inputs5.Size = new Size(40, 15);
+            inputs5.TabIndex = 11;
+            inputs5.Text = "inputs";
+            // 
+            // domainUpDown1
+            // 
+            domainUpDown1.Location = new Point(41, 111);
+            domainUpDown1.Name = "domainUpDown1";
+            domainUpDown1.Size = new Size(120, 23);
+            domainUpDown1.TabIndex = 12;
+            // 
+            // domainUpDown2
+            // 
+            domainUpDown2.Location = new Point(234, 112);
+            domainUpDown2.Name = "domainUpDown2";
+            domainUpDown2.Size = new Size(120, 23);
+            domainUpDown2.TabIndex = 13;
             // 
             // editing
             // 
@@ -148,14 +165,16 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(192, 192, 255);
             ClientSize = new Size(800, 450);
-            Controls.Add(label5);
-            Controls.Add(label4);
-            Controls.Add(label3);
+            Controls.Add(domainUpDown2);
+            Controls.Add(domainUpDown1);
+            Controls.Add(inputs5);
+            Controls.Add(inputs4);
+            Controls.Add(inputs3);
             Controls.Add(input5);
             Controls.Add(input4);
             Controls.Add(input3);
-            Controls.Add(label2);
-            Controls.Add(label1);
+            Controls.Add(inputs2);
+            Controls.Add(inputs1);
             Controls.Add(input2);
             Controls.Add(input);
             Controls.Add(save_click);
@@ -173,13 +192,15 @@
         private Button save_click;
         private TextBox input;
         private TextBox input2;
-        private Label label1;
-        private Label label2;
+        private Label inputs1;
+        private Label inputs2;
         private TextBox input3;
         private TextBox input4;
         private TextBox input5;
-        private Label label3;
-        private Label label4;
-        private Label label5;
+        private Label inputs3;
+        private Label inputs4;
+        private Label inputs5;
+        private DomainUpDown domainUpDown1;
+        private DomainUpDown domainUpDown2;
     }
 }
