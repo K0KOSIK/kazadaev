@@ -13,6 +13,12 @@ namespace kazadaev
             this.ControlBox = false;
             this.DoubleBuffered = true;
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
+            this.textBox2.KeyDown += TextBox2_KeyDown;
+        }
+
+        private void TextBox2_KeyDown(object? sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter) { button1.PerformClick(); }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -22,7 +28,6 @@ namespace kazadaev
                 Ispr2525KazadaevNvCursovoiContext context = new();
                 User? user = context.Users
                     .Where(user => user.UsersName == textBox1.Text && user.Password == textBox2.Text)
-                    .Include(user => user.Roles)
                     .FirstOrDefault();
                 if (user.Role == "Администратор")//
                 {

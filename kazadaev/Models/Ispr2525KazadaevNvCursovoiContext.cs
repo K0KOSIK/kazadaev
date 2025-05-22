@@ -87,7 +87,6 @@ public partial class Ispr2525KazadaevNvCursovoiContext : DbContext
             entity.Property(e => e.CustomersIdCustomers).HasColumnName("Customers_idCustomers");
             entity.Property(e => e.Orderdate).HasMaxLength(50);
             entity.Property(e => e.StatusIdStatus).HasColumnName("Status_idStatus");
-            entity.Property(e => e.TotalAmount).HasPrecision(10, 2);
 
             entity.HasOne(d => d.CustomersIdCustomersNavigation).WithMany(p => p.Orders)
                 .HasForeignKey(d => d.CustomersIdCustomers)
@@ -111,7 +110,6 @@ public partial class Ispr2525KazadaevNvCursovoiContext : DbContext
             entity.Property(e => e.IdOrderDetails).HasColumnName("idOrderDetails");
             entity.Property(e => e.OrdersIdOrders).HasColumnName("Orders_idOrders");
             entity.Property(e => e.ProductIdProduct).HasColumnName("Product_idProduct");
-            entity.Property(e => e.Quantity).HasMaxLength(100);
 
             entity.HasOne(d => d.OrdersIdOrdersNavigation).WithMany(p => p.OrderDetails)
                 .HasForeignKey(d => d.OrdersIdOrders)
@@ -148,18 +146,10 @@ public partial class Ispr2525KazadaevNvCursovoiContext : DbContext
 
             entity.ToTable("Role");
 
-            entity.HasIndex(e => e.UsersIdUsers, "fk_Role_Users_idx");
-
             entity.Property(e => e.IdRole).HasColumnName("idRole");
             entity.Property(e => e.Role1)
-                .HasColumnType("enum('Администратор','зам директора','директор')")
+                .HasMaxLength(25)
                 .HasColumnName("Role");
-            entity.Property(e => e.UsersIdUsers).HasColumnName("Users_idUsers");
-
-            entity.HasOne(d => d.UsersIdUsersNavigation).WithMany(p => p.Roles)
-                .HasForeignKey(d => d.UsersIdUsers)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("fk_Role_Users");
         });
 
         modelBuilder.Entity<Status>(entity =>

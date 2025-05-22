@@ -14,6 +14,4 @@ public partial class User
     public string Role { get; set; } = null!;
 
     public virtual ICollection<Customer> Customers { get; set; } = new List<Customer>();
-
-    public virtual ICollection<Role> Roles { get; set; } = new List<Role>();
 }

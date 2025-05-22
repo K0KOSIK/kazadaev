@@ -77,13 +77,11 @@ namespace kazadaev
             }
             Ispr2525KazadaevNvCursovoiContext context4 = new();
             var Role = context4.Roles
-                .Include(x => x.UsersIdUsers)
                 .OrderBy(x => x.IdRole)
                 .Select(x => new
                 {
                     x.IdRole,
                     x.Role1,
-                    x.UsersIdUsers
 
                 });
             if (dataGridView1.DataSource != null)

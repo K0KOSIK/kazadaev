@@ -166,12 +166,13 @@ namespace kazadaev
         {
             input.DataBindings.Add("Text", roles, nameof(roles.IdRole));
             input2.DataBindings.Add("Text", roles, nameof(roles.Role1));
-            input3.DataBindings.Add("Text", roles, nameof(roles.UsersIdUsers));
+            //input3.DataBindings.Add("Text", roles, nameof(roles.UsersIdUsers));
             input4.Visible = false;
             input5.Visible = false;
+            input3.Visible= false;
+            inputs3.Visible= false;
             inputs4.Visible = false;
             inputs5.Visible = false;
-            input2.Visible = false;
             domainUpDown1.Visible = false;
             domainUpDown2.Visible = false;
             //List<string> statesuser = new List<string>
@@ -281,19 +282,12 @@ namespace kazadaev
                     Role Role = new();
                     Role.IdRole = Convert.ToInt32(input.Text);
                     Role.Role1 = input2.Text;
-                    Role.UsersIdUsers = Convert.ToInt32(input3.Text);
-                    if (Convert.ToInt32(input3.Text) < 1 || Convert.ToInt32(input3.Text) > 3)
-                    {
-                        MessageBox.Show("Значение должно быть от 1 до 3", "Ошибка",
-                                       MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        isError = IsError.Y;
-                        break;
-                    }
                     Ispr2525KazadaevNvCursovoiContext context4 = new();
                     if (isEdit == IsEdit.Y)
                         context4.Update(Role);
                     if (isEdit == IsEdit.N)
                         context4.Add(Role);
+                    //context4.
                     context4.SaveChanges();
                     break;
                 case ActiveEntity.Orders:

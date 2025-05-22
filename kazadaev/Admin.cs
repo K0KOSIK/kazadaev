@@ -82,13 +82,11 @@ namespace kazadaev
             }
             Ispr2525KazadaevNvCursovoiContext context4 = new();
             var Role = context4.Roles
-                .Include(x => x.UsersIdUsers)
                 .OrderBy(x => x.IdRole)
                 .Select(x => new
                 {
                     x.IdRole,
                     x.Role1,
-                    x.UsersIdUsers
 
                 });
             if (dataGridView1.DataSource != null)
@@ -163,7 +161,7 @@ namespace kazadaev
             dataGridView1.DataSource = context.Users.ToList();
             activeEntity = ActiveEntity.Users;
             dataGridView1.Columns[4].Visible = false;
-            dataGridView1.Columns[5].Visible = false;
+            //dataGridView1.Columns[5].Visible = false;
         }
 
         private void Status_Click(object sender, EventArgs e)
@@ -180,7 +178,7 @@ namespace kazadaev
             Ispr2525KazadaevNvCursovoiContext context = new();
             dataGridView1.DataSource = context.Roles.ToList();
             activeEntity = ActiveEntity.Roles;
-            dataGridView1.Columns[3].Visible = false;
+            //dataGridView1.Columns[3].Visible = false;
         }
 
         private void Product_Click(object sender, EventArgs e)
@@ -234,7 +232,7 @@ namespace kazadaev
             dataGridView1.DataSource = context.Users.ToList();
             activeEntity = ActiveEntity.Users;
             dataGridView1.Columns[4].Visible = false;
-            dataGridView1.Columns[5].Visible = false;
+            //dataGridView1.Columns[5].Visible = false;
         }
 
         private void bt_exit_Click(object sender, EventArgs e)
@@ -577,7 +575,6 @@ namespace kazadaev
                     {
                         IdRole = (int)dataGridView1.SelectedRows[0].Cells[0].Value,
                         Role1 = (string)dataGridView1.SelectedRows[0].Cells[1].Value,
-                        UsersIdUsers = (int)dataGridView1.SelectedRows[0].Cells[2].Value,
                     };
                     this.Hide();
                     var editing = new editing(ActiveEntity.Roles, Roles);
@@ -798,7 +795,6 @@ namespace kazadaev
                     {
                         IdRole = (int)dataGridView1.Rows[dataGridView1.RowCount - 1].Cells[0].Value + 1,
                         Role1 = "",
-                        UsersIdUsers = 0,
                     };
                     this.Hide();
                     var editing = new editing(ActiveEntity.Roles, Roles);
