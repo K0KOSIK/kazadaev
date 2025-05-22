@@ -798,7 +798,7 @@ namespace kazadaev
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Не получилось добавить: " + ex.Message);
+                    MessageBox.Show("Не получилось добавить: " + ex.Message);//
                 }
             }
             if (activeEntity == ActiveEntity.Products)
