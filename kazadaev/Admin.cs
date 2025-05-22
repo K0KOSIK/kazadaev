@@ -161,54 +161,80 @@ namespace kazadaev
         {
             Ispr2525KazadaevNvCursovoiContext context = new();
             dataGridView1.DataSource = context.Users.ToList();
+            activeEntity = ActiveEntity.Users;
+            dataGridView1.Columns[4].Visible = false;
+            dataGridView1.Columns[5].Visible = false;
         }
 
         private void Status_Click(object sender, EventArgs e)
         {
             Ispr2525KazadaevNvCursovoiContext context = new();
             dataGridView1.DataSource = context.Statuses.ToList();
+            activeEntity = ActiveEntity.Statuses;
+            dataGridView1.Columns[2].Visible = false;
+
         }
 
         private void Role_Click(object sender, EventArgs e)
         {
             Ispr2525KazadaevNvCursovoiContext context = new();
             dataGridView1.DataSource = context.Roles.ToList();
+            activeEntity = ActiveEntity.Roles;
+            dataGridView1.Columns[3].Visible = false;
         }
 
         private void Product_Click(object sender, EventArgs e)
         {
             Ispr2525KazadaevNvCursovoiContext context = new();
             dataGridView1.DataSource = context.Products.ToList();
+            activeEntity = ActiveEntity.Products;
+            dataGridView1.Columns[5].Visible = false;
+            dataGridView1.Columns[6].Visible = false;
         }
 
         private void Orders_Click(object sender, EventArgs e)
         {
             Ispr2525KazadaevNvCursovoiContext context = new();
             dataGridView1.DataSource = context.Orders.ToList();
+            activeEntity = ActiveEntity.Orders;
+            dataGridView1.Columns[5].Visible = false;
+            dataGridView1.Columns[6].Visible = false;
+            dataGridView1.Columns[7].Visible = false;
         }
 
         private void OrderDetails_Click(object sender, EventArgs e)
         {
             Ispr2525KazadaevNvCursovoiContext context = new();
             dataGridView1.DataSource = context.OrderDetails.ToList();
+            activeEntity = ActiveEntity.OrderDetails;
+            dataGridView1.Columns[5].Visible = false;
+            dataGridView1.Columns[6].Visible = false;
         }
 
         private void Customers_Click(object sender, EventArgs e)
         {
             Ispr2525KazadaevNvCursovoiContext context = new();
             dataGridView1.DataSource = context.Customers.ToList();
+            activeEntity = ActiveEntity.Customers;
+            dataGridView1.Columns[5].Visible = false;
+            dataGridView1.Columns[6].Visible = false;
         }
 
         private void Categories_Click(object sender, EventArgs e)
         {
             Ispr2525KazadaevNvCursovoiContext context = new();
             dataGridView1.DataSource = context.Categories.ToList();
+            activeEntity = ActiveEntity.Categories;
+            dataGridView1.Columns[3].Visible = false;
         }
 
         private void Admin_Load(object sender, EventArgs e)
         {
             Ispr2525KazadaevNvCursovoiContext context = new();
             dataGridView1.DataSource = context.Users.ToList();
+            activeEntity = ActiveEntity.Users;
+            dataGridView1.Columns[4].Visible = false;
+            dataGridView1.Columns[5].Visible = false;
         }
 
         private void bt_exit_Click(object sender, EventArgs e)
