@@ -28,51 +28,53 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button1 = new Button();
-            button2 = new Button();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
+            cancellation = new Button();
+            save_click = new Button();
+            input = new TextBox();
+            input2 = new TextBox();
             label1 = new Label();
             label2 = new Label();
-            textBox3 = new TextBox();
-            textBox4 = new TextBox();
-            textBox5 = new TextBox();
+            input3 = new TextBox();
+            input4 = new TextBox();
+            input5 = new TextBox();
             label3 = new Label();
             label4 = new Label();
             label5 = new Label();
             SuspendLayout();
             // 
-            // button1
+            // cancellation
             // 
-            button1.Location = new Point(500, 285);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 23);
-            button1.TabIndex = 0;
-            button1.Text = "button1";
-            button1.UseVisualStyleBackColor = true;
+            cancellation.Location = new Point(500, 285);
+            cancellation.Name = "cancellation";
+            cancellation.Size = new Size(75, 23);
+            cancellation.TabIndex = 0;
+            cancellation.Text = "Отмена";
+            cancellation.UseVisualStyleBackColor = true;
+            cancellation.Click += cancellation_Click;
             // 
-            // button2
+            // save_click
             // 
-            button2.Location = new Point(597, 285);
-            button2.Name = "button2";
-            button2.Size = new Size(75, 23);
-            button2.TabIndex = 1;
-            button2.Text = "button2";
-            button2.UseVisualStyleBackColor = true;
+            save_click.Location = new Point(597, 285);
+            save_click.Name = "save_click";
+            save_click.Size = new Size(75, 23);
+            save_click.TabIndex = 1;
+            save_click.Text = "Сохронить ";
+            save_click.UseVisualStyleBackColor = true;
+            save_click.Click += save_click_Click;
             // 
-            // textBox1
+            // input
             // 
-            textBox1.Location = new Point(41, 60);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(100, 23);
-            textBox1.TabIndex = 2;
+            input.Location = new Point(41, 60);
+            input.Name = "input";
+            input.Size = new Size(100, 23);
+            input.TabIndex = 2;
             // 
-            // textBox2
+            // input2
             // 
-            textBox2.Location = new Point(41, 111);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(100, 23);
-            textBox2.TabIndex = 3;
+            input2.Location = new Point(41, 111);
+            input2.Name = "input2";
+            input2.Size = new Size(100, 23);
+            input2.TabIndex = 3;
             // 
             // label1
             // 
@@ -92,26 +94,26 @@
             label2.TabIndex = 5;
             label2.Text = "label2";
             // 
-            // textBox3
+            // input3
             // 
-            textBox3.Location = new Point(234, 60);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(100, 23);
-            textBox3.TabIndex = 6;
+            input3.Location = new Point(234, 60);
+            input3.Name = "input3";
+            input3.Size = new Size(100, 23);
+            input3.TabIndex = 6;
             // 
-            // textBox4
+            // input4
             // 
-            textBox4.Location = new Point(234, 111);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(100, 23);
-            textBox4.TabIndex = 7;
+            input4.Location = new Point(234, 111);
+            input4.Name = "input4";
+            input4.Size = new Size(100, 23);
+            input4.TabIndex = 7;
             // 
-            // textBox5
+            // input5
             // 
-            textBox5.Location = new Point(397, 60);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(100, 23);
-            textBox5.TabIndex = 8;
+            input5.Location = new Point(397, 60);
+            input5.Name = "input5";
+            input5.Size = new Size(100, 23);
+            input5.TabIndex = 8;
             // 
             // label3
             // 
@@ -149,15 +151,15 @@
             Controls.Add(label5);
             Controls.Add(label4);
             Controls.Add(label3);
-            Controls.Add(textBox5);
-            Controls.Add(textBox4);
-            Controls.Add(textBox3);
+            Controls.Add(input5);
+            Controls.Add(input4);
+            Controls.Add(input3);
             Controls.Add(label2);
             Controls.Add(label1);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
-            Controls.Add(button2);
-            Controls.Add(button1);
+            Controls.Add(input2);
+            Controls.Add(input);
+            Controls.Add(save_click);
+            Controls.Add(cancellation);
             Name = "editing";
             Text = "editing";
             Load += editing_Load;
@@ -167,15 +169,15 @@
 
         #endregion
 
-        private Button button1;
-        private Button button2;
-        private TextBox textBox1;
-        private TextBox textBox2;
+        private Button cancellation;
+        private Button save_click;
+        private TextBox input;
+        private TextBox input2;
         private Label label1;
         private Label label2;
-        private TextBox textBox3;
-        private TextBox textBox4;
-        private TextBox textBox5;
+        private TextBox input3;
+        private TextBox input4;
+        private TextBox input5;
         private Label label3;
         private Label label4;
         private Label label5;

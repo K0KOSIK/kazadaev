@@ -1,4 +1,5 @@
 ﻿using kazadaev.Models;
+
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,8 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Runtime.InteropServices.JavaScript.JSType;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+
 
 namespace kazadaev
 {
@@ -92,28 +92,28 @@ namespace kazadaev
             switch (x)
             {
                 case ActiveEntity.Users:
-                    BindAlertLogs((Users)entityData);
+                    BindUsers((User)entityData);
                     break;
                 case ActiveEntity.Statuses:
-                    BindDeviceType((Statuses)entityData);
+                    BindStatuses((Models.Status)entityData);
                     break;
                 case ActiveEntity.Products:
-                    BindPerformanceReports((Products)entityData);
+                    BindProducts((Product)entityData);
                     break;
                 case ActiveEntity.Roles:
-                    BindMonitoringData((Roles)entityData);
+                    BindRoles((Role)entityData);
                     break;
                 case ActiveEntity.Orders:
-                    BindPLC_Devices((Orders)entityData);
+                    BindOrders((Order)entityData);
                     break;
                 case ActiveEntity.OrderDetails:
-                    BindSeverity((OrderDetails)entityData);
+                    BindOrderDetails((OrderDetail)entityData);
                     break;
                 case ActiveEntity.Customers:
-                    BindStatus((Customers)entityData);
+                    BindCustomers((Customer)entityData);
                     break;
                 case ActiveEntity.Categories:
-                    BindStatus((Categories)entityData);
+                    BindCategories((Category)entityData);
                     break;
             }
         }
@@ -121,5 +121,280 @@ namespace kazadaev
         {
 
         }
+
+        private void BindUsers(User user)
+        {
+            input.DataBindings.Add("Text", user, nameof(user.IdUsers));
+            input2.DataBindings.Add("Text", user, nameof(user.UsersName));
+            input3.DataBindings.Add("Text", user, nameof(user.Password));
+            input4.DataBindings.Add("Text", user, nameof(user.Role));
+        }
+        private void BindStatuses(Models.Status status)
+        {
+            input.DataBindings.Add("Text", status, nameof(status.IdStatus));
+            input2.DataBindings.Add("Text", status, nameof(status.Status1));
+        }
+        private void BindProducts(Product product)
+        {
+            input.DataBindings.Add("Text", product, nameof(product.IdProduct));
+            input2.DataBindings.Add("Text", product, nameof(product.Productname));
+            input3.DataBindings.Add("Text", product, nameof(product.Price));
+            input4.DataBindings.Add("Text", product, nameof(product.StockQuantity));
+            input5.DataBindings.Add("Text", product, nameof(product.CategoriesIdCategories));
+        }
+        private void BindRoles(Role roles)
+        {
+            input.DataBindings.Add("Text", roles, nameof(roles.IdRole));
+            input2.DataBindings.Add("Text", roles, nameof(roles.Role1));
+            input3.DataBindings.Add("Text", roles, nameof(roles.UsersIdUsers));
+        }
+        private void BindOrders(Order order)
+        {
+            input.DataBindings.Add("Text", order, nameof(order.IdOrders));
+            input2.DataBindings.Add("Text", order, nameof(order.Orderdate));
+            input3.DataBindings.Add("Text", order, nameof(order.TotalAmount));
+            input4.DataBindings.Add("Text", order, nameof(order.StatusIdStatus));
+            input5.DataBindings.Add("Text", order, nameof(order.CustomersIdCustomers));
+        }
+        private void BindOrderDetails(OrderDetail orderdetail)
+        {
+            input.DataBindings.Add("Text", orderdetail, nameof(orderdetail.IdOrderDetails));
+            input2.DataBindings.Add("Text", orderdetail, nameof(orderdetail.Quantity));
+            input3.DataBindings.Add("Text", orderdetail, nameof(orderdetail.Price));
+            input4.DataBindings.Add("Text", orderdetail, nameof(orderdetail.ProductIdProduct));
+            input5.DataBindings.Add("Text", orderdetail, nameof(orderdetail.OrdersIdOrders));
+        }
+        private void BindCustomers(Customer customer)
+        {
+            input.DataBindings.Add("Text", customer, nameof(customer.IdCustomers));
+            input2.DataBindings.Add("Text", customer, nameof(customer.Name));
+            input3.DataBindings.Add("Text", customer, nameof(customer.Phone));
+            input4.DataBindings.Add("Text", customer, nameof(customer.Email));
+            input5.DataBindings.Add("Text", customer, nameof(customer.UsersIdUsers));
+        }
+        private void BindCategories(Category category)
+        {
+            input.DataBindings.Add("Text", category, nameof(category.IdCategories));
+            input2.DataBindings.Add("Text", category, nameof(category.CategoriesName));
+            input3.DataBindings.Add("Text", category, nameof(category.Descriptions));
+        }
+
+        private void save_click_Click(object sender, EventArgs e)
+        {
+            switch (x)
+            {
+                case ActiveEntity.Users:
+                    User User = new();
+                    User.IdUsers = Convert.ToInt32(input.Text);
+                    User.UsersName = input2.Text;
+                    User.Password = input3.Text;
+                    User.Role = input4.Text;
+                    Ispr2525KazadaevNvCursovoiContext context = new();
+                    if (isEdit == IsEdit.Y)
+                        context.Update(User);
+                    if (isEdit == IsEdit.N)
+                        context.Add(User);
+                    context.SaveChanges();
+                    break;
+                case ActiveEntity.Statuses:
+                    Status Status = new();
+                    Status.IdStatus = Convert.ToInt32(input.Text);
+                    Status.Status1 = input2.Text;
+                    Ispr2525KazadaevNvCursovoiContext context2 = new();
+                    if (isEdit == IsEdit.Y)
+                    {
+                        context2.Update(Status);
+                    }
+                    if (isEdit == IsEdit.N)
+                    {
+                        context2.Add(Status);
+                    }
+                    context2.SaveChanges();
+                    break;
+                case ActiveEntity.Products:
+                    Product Product = new();
+                    Product.IdProduct = Convert.ToInt32(input.Text);
+                    Product.Productname = input2.Text;
+                    Product.Price = Convert.ToInt32(input3.Text);
+                    Product.StockQuantity = Convert.ToInt32(input4.Text);
+                    Product.CategoriesIdCategories = Convert.ToInt32(input5.Text);
+                    if (Convert.ToInt32(input5.Text) < 1 || Convert.ToInt32(input5.Text) > 5)
+                    {
+                        MessageBox.Show("Значение должно быть от 1 до 5", "Ошибка",
+                                       MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        isError = IsError.Y;
+                        break;
+                    }
+                    Ispr2525KazadaevNvCursovoiContext context3 = new();
+                    if (isEdit == IsEdit.Y)
+                        context3.Update(Product);
+                    if (isEdit == IsEdit.N)
+                        context3.Add(Product);
+                    context3.SaveChanges();
+                    break;
+                case ActiveEntity.Roles:
+                    Role Role = new();
+                    Role.IdRole = Convert.ToInt32(input.Text);
+                    Role.Role1 = input2.Text;
+                    Role.UsersIdUsers = Convert.ToInt32(input3.Text);
+                    if (Convert.ToInt32(input3.Text) < 1 || Convert.ToInt32(input3.Text) > 5)
+                    {
+                        MessageBox.Show("Значение должно быть от 1 до 5", "Ошибка",
+                                       MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        isError = IsError.Y;
+                        break;
+                    }
+                    Ispr2525KazadaevNvCursovoiContext context4 = new();
+                    if (isEdit == IsEdit.Y)
+                        context4.Update(Role);
+                    if (isEdit == IsEdit.N)
+                        context4.Add(Role);
+                    context4.SaveChanges();
+                    break;
+                case ActiveEntity.Orders:
+                    Order Order = new();
+                    Order.IdOrders = Convert.ToInt32(input.Text);
+                    Order.Orderdate = input2.Text;
+                    Order.TotalAmount = Convert.ToInt32(input3.Text);
+                    Order.StatusIdStatus = Convert.ToInt32(input4.Text);
+                    if (Convert.ToInt32(input4.Text) < 1 || Convert.ToInt32(input4.Text) > 5)
+                    {
+                        MessageBox.Show("Значение должно быть от 1 до 5", "Ошибка",
+                                       MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        isError = IsError.Y;
+                        break;
+                    }
+                    Order.CustomersIdCustomers = Convert.ToInt32(input5.Text);
+                    if (Convert.ToInt32(input5.Text) < 1 || Convert.ToInt32(input5.Text) > 5)
+                    {
+                        MessageBox.Show("Значение должно быть от 1 до 5", "Ошибка",
+                                       MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        isError = IsError.Y;
+                        break;
+                    }
+                    Ispr2525KazadaevNvCursovoiContext context5 = new();
+                    if (isEdit == IsEdit.Y)
+                        context5.Update(Order);
+                    if (isEdit == IsEdit.N)
+                        context5.Add(Order);
+                    context5.SaveChanges();
+                    break;
+                case ActiveEntity.OrderDetails:
+                    OrderDetail OrderDetail = new();
+                    OrderDetail.IdOrderDetails = Convert.ToInt32(input.Text);
+                    OrderDetail.Quantity = Convert.ToInt32 (input2.Text);
+                    OrderDetail.Price = Convert.ToInt32(input3.Text);
+                    OrderDetail.ProductIdProduct = Convert.ToInt32(input4.Text);
+                    if (Convert.ToInt32(input4.Text) < 1 || Convert.ToInt32(input4.Text) > 5)
+                    {
+                        MessageBox.Show("Значение должно быть от 1 до 5", "Ошибка",
+                                       MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        isError = IsError.Y;
+                        break;
+                    }
+                    OrderDetail.OrdersIdOrders = Convert.ToInt32(input5.Text);
+                    if (Convert.ToInt32(input5.Text) < 1 || Convert.ToInt32(input5.Text) > 5)
+                    {
+                        MessageBox.Show("Значение должно быть от 1 до 5", "Ошибка",
+                                       MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        isError = IsError.Y;
+                        break;
+                    }
+                    Ispr2525KazadaevNvCursovoiContext context6 = new();
+                    if (isEdit == IsEdit.Y)
+                        context6.Update(OrderDetail);
+                    if (isEdit == IsEdit.N)
+                        context6.Add(OrderDetail);
+                    context6.SaveChanges();
+                    break;
+                case ActiveEntity.Customers:
+                    Customer Customer = new();
+                    Customer.IdCustomers = Convert.ToInt32(input.Text);
+                    Customer.Name = input2.Text;
+                    Customer.Phone = input3.Text;
+                    Customer.Email = input4.Text;
+                    Customer.UsersIdUsers = Convert.ToInt32(input5.Text);
+                    if (Convert.ToInt32(input5.Text) < 1 || Convert.ToInt32(input5.Text) > 5)
+                    {
+                        MessageBox.Show("Значение должно быть от 1 до 5", "Ошибка",
+                                       MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        isError = IsError.Y;
+                        break;
+                    }
+                    Ispr2525KazadaevNvCursovoiContext context7 = new();
+                    if (isEdit == IsEdit.Y)
+                        context7.Update(Customer);
+                    if (isEdit == IsEdit.N)
+                        context7.Add(Customer);
+                    context7.SaveChanges();
+                    break;
+                case ActiveEntity.Categories:
+                    Category Category = new();
+                    Category.IdCategories = Convert.ToInt32(input.Text);
+                    Category.CategoriesName = input2.Text;
+                    Category.Descriptions = input3.Text;
+                    Ispr2525KazadaevNvCursovoiContext context8 = new();
+                    if (isEdit == IsEdit.Y)
+                        context8.Update(Category);
+                    if (isEdit == IsEdit.N)
+                        context8.Add(Category);
+                    context8.SaveChanges();
+                    break;
+                default:
+                    break;
+            }
+            if (isError == IsError.N)
+            {
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+        }
+
+        private void cancellation_Click(object sender, EventArgs e)
+        {
+            if (isEdit == IsEdit.Y)
+            {
+                switch (x)
+                {
+                    case ActiveEntity.Users:
+                        Ispr2525KazadaevNvCursovoiContext context = new();
+                        context.SaveChanges();
+                        break;
+                    case ActiveEntity.Statuses:
+                        Ispr2525KazadaevNvCursovoiContext context2 = new();
+                        context2.SaveChanges();
+                        break;
+                    case ActiveEntity.Products:
+                        Ispr2525KazadaevNvCursovoiContext context3 = new();
+                        context3.SaveChanges();
+                        break;
+                    case ActiveEntity.Roles:
+                        Ispr2525KazadaevNvCursovoiContext context4 = new();
+                        context4.SaveChanges();
+                        break;
+                    case ActiveEntity.Orders:
+                        Ispr2525KazadaevNvCursovoiContext context5 = new();
+                        context5.SaveChanges();
+                        break;
+                    case ActiveEntity.OrderDetails:
+                        Ispr2525KazadaevNvCursovoiContext context6 = new();
+                        context6.SaveChanges();
+                        break;
+                    case ActiveEntity.Customers:
+                        Ispr2525KazadaevNvCursovoiContext context7 = new();
+                        context7.SaveChanges();
+                        break;
+                    case ActiveEntity.Categories:
+                        Ispr2525KazadaevNvCursovoiContext context8 = new();
+                        context8.SaveChanges();
+                        break;
+                    default:
+                        break;
+                }
+            }
+            this.DialogResult = DialogResult.OK;
+            this.Close();
+        }
     }
 }
+

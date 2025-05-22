@@ -95,6 +95,7 @@
             Categories.TabIndex = 7;
             Categories.Text = "Categories";
             Categories.UseVisualStyleBackColor = false;
+            Categories.Click += Categories_Click;
             // 
             // bt_max
             // 
@@ -125,6 +126,7 @@
             Customers.TabIndex = 6;
             Customers.Text = "Customers";
             Customers.UseVisualStyleBackColor = false;
+            Customers.Click += Customers_Click;
             // 
             // OrderDetails
             // 
@@ -135,6 +137,7 @@
             OrderDetails.TabIndex = 5;
             OrderDetails.Text = "OrderDetails";
             OrderDetails.UseVisualStyleBackColor = false;
+            OrderDetails.Click += OrderDetails_Click;
             // 
             // Orders
             // 
@@ -145,6 +148,7 @@
             Orders.TabIndex = 4;
             Orders.Text = "Orders";
             Orders.UseVisualStyleBackColor = false;
+            Orders.Click += Orders_Click;
             // 
             // Product
             // 
@@ -155,6 +159,7 @@
             Product.TabIndex = 3;
             Product.Text = "Product";
             Product.UseVisualStyleBackColor = false;
+            Product.Click += Product_Click;
             // 
             // Role
             // 
@@ -165,6 +170,7 @@
             Role.TabIndex = 2;
             Role.Text = "Role";
             Role.UseVisualStyleBackColor = false;
+            Role.Click += Role_Click;
             // 
             // Status
             // 
@@ -175,6 +181,7 @@
             Status.TabIndex = 1;
             Status.Text = "Status";
             Status.UseVisualStyleBackColor = false;
+            Status.Click += Status_Click;
             // 
             // Users
             // 

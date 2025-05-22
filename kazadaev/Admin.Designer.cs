@@ -203,6 +203,7 @@
             bt_add.TabIndex = 2;
             bt_add.Text = "Добавить";
             bt_add.UseVisualStyleBackColor = false;
+            bt_add.Click += bt_add_Click;
             // 
             // bt_edit
             // 
@@ -213,6 +214,7 @@
             bt_edit.TabIndex = 3;
             bt_edit.Text = "Изменить";
             bt_edit.UseVisualStyleBackColor = false;
+            bt_edit.Click += bt_edit_Click;
             // 
             // bt_delete
             // 
@@ -223,6 +225,7 @@
             bt_delete.TabIndex = 4;
             bt_delete.Text = "Удалить";
             bt_delete.UseVisualStyleBackColor = false;
+            bt_delete.Click += bt_delete_Click;
             // 
             // Admin
             // 
