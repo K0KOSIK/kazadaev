@@ -131,6 +131,7 @@ namespace kazadaev
             dataGridView1.Columns[5].Visible = false;
             dataGridView1.Columns[6].Visible = false;
             dataGridView1.Columns[7].Visible = false;
+            activeEntity = ActiveEntity.Orders;
         }
 
         private void Status_Click(object sender, EventArgs e)
@@ -138,6 +139,7 @@ namespace kazadaev
             Ispr2525KazadaevNvCursovoiContext context = new();
             dataGridView1.DataSource = context.Statuses.ToList();
             dataGridView1.Columns[2].Visible = false;
+            activeEntity = ActiveEntity.Statuses;
         }
 
         private void Product_Click(object sender, EventArgs e)
@@ -146,6 +148,8 @@ namespace kazadaev
             dataGridView1.DataSource = context.Products.ToList();
             dataGridView1.Columns[5].Visible = false;
             dataGridView1.Columns[6].Visible = false;
+            activeEntity = ActiveEntity.Products;
+
         }
 
         private void OrderDetails_Click(object sender, EventArgs e)
@@ -154,6 +158,7 @@ namespace kazadaev
             dataGridView1.DataSource = context.OrderDetails.ToList();
             dataGridView1.Columns[5].Visible = false;
             dataGridView1.Columns[6].Visible = false;
+            activeEntity = ActiveEntity.OrderDetails;
         }
 
         private void Customers_Click(object sender, EventArgs e)
@@ -162,6 +167,7 @@ namespace kazadaev
             dataGridView1.DataSource = context.Customers.ToList();
             dataGridView1.Columns[5].Visible = false;
             dataGridView1.Columns[6].Visible = false;
+            activeEntity = ActiveEntity.Customers;
         }
 
         private void Categories_Click(object sender, EventArgs e)
@@ -169,6 +175,7 @@ namespace kazadaev
             Ispr2525KazadaevNvCursovoiContext context = new();
             dataGridView1.DataSource = context.Categories.ToList();
             dataGridView1.Columns[3].Visible = false;
+            activeEntity = ActiveEntity.Categories;
         }
 
         private void Deputy_Director_Load(object sender, EventArgs e)
@@ -178,6 +185,7 @@ namespace kazadaev
             dataGridView1.Columns[5].Visible = false;
             dataGridView1.Columns[6].Visible = false;
             dataGridView1.Columns[7].Visible = false;
+            activeEntity = ActiveEntity.Orders;
         }
 
         private void bt_min_Click(object sender, EventArgs e)

@@ -223,6 +223,7 @@ namespace kazadaev
             inputs5.Visible = false;
             domainUpDown1.Visible = false;
             domainUpDown2.Visible = false;
+            inputs4.Visible = false;
         }
 
         private void save_click_Click(object sender, EventArgs e)
