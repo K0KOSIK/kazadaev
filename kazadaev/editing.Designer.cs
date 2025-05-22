@@ -183,6 +183,7 @@
             Name = "editing";
             Text = "editing";
             Load += editing_Load;
+            MouseDown += panelTop_MouseDown;
             ResumeLayout(false);
             PerformLayout();
         }

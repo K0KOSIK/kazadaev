@@ -83,6 +83,7 @@ namespace kazadaev
                 MessageBox.Show($"Ошибка записи лога: {writeEx.Message}");
             }
         }
+
         private void Avtorisation_Load(object sender, EventArgs e)
         {
 

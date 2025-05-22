@@ -115,6 +115,7 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(800, 25);
             panel1.TabIndex = 6;
+            panel1.MouseDown += panel1_MouseDown;
             // 
             // bt_min
             // 
