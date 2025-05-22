@@ -133,9 +133,9 @@ namespace kazadaev
             input4.Visible = false;
             domainUpDown1.Visible = false;
             List<string> statesuser = new List<string>
-        {
-            "Администратор", "зам директора", "директор",
-        };
+            {
+                "Администратор", "зам директора", "директор",
+            };
             domainUpDown2.Items.Clear();
             domainUpDown2.Items.AddRange(statesuser);
         }
@@ -165,20 +165,21 @@ namespace kazadaev
         private void BindRoles(Role roles)
         {
             input.DataBindings.Add("Text", roles, nameof(roles.IdRole));
-            domainUpDown1.DataBindings.Add("Text", roles, nameof(roles.Role1));
+            input2.DataBindings.Add("Text", roles, nameof(roles.Role1));
             input3.DataBindings.Add("Text", roles, nameof(roles.UsersIdUsers));
             input4.Visible = false;
             input5.Visible = false;
             inputs4.Visible = false;
             inputs5.Visible = false;
             input2.Visible = false;
+            domainUpDown1.Visible = false;
             domainUpDown2.Visible = false;
-            List<string> statesuser = new List<string>
-        {
-            "Администратор", "зам директора", "директор",
-        };
-            domainUpDown1.Items.Clear();
-            domainUpDown1.Items.AddRange(statesuser);
+            //List<string> statesuser = new List<string>
+            //{
+            //"Администратор", "зам директора", "директор",
+            //};
+            //domainUpDown1.Items.Clear();
+            //domainUpDown1.Items.AddRange(statesuser);
         }
         private void BindOrders(Order order)
         {
@@ -232,7 +233,7 @@ namespace kazadaev
                     User.IdUsers = Convert.ToInt32(input.Text);
                     User.UsersName = input2.Text;
                     User.Password = input3.Text;
-                    User.Role = input4.Text;
+                    User.Role = domainUpDown2.Text;
                     Ispr2525KazadaevNvCursovoiContext context = new();
                     if (isEdit == IsEdit.Y)
                         context.Update(User);
