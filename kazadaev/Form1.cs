@@ -24,7 +24,7 @@ namespace kazadaev
                     .Where(user => user.UsersName == textBox1.Text && user.Password == textBox2.Text)
                     .Include(user => user.Roles)
                     .FirstOrDefault();
-                if (user.Role == "Администратор")
+                if (user.Role == "Администратор")//
                 {
                     MessageBox.Show(user.Role);
                     Admin Admin = new Admin(this);
