@@ -276,6 +276,8 @@ namespace kazadaev
                             context.SaveChanges();
                             UpdateInfo();
                             dataGridView1.DataSource = context.Users.ToList();
+                            dataGridView1.Columns[4].Visible = false;
+                            dataGridView1.Columns[5].Visible = false;
                         }
                         catch (Exception ex)
                         {
@@ -304,6 +306,7 @@ namespace kazadaev
                             contex.SaveChanges();
                             UpdateInfo();
                             dataGridView1.DataSource = contex.Statuses.ToList();
+                            dataGridView1.Columns[2].Visible = false;
                         }
                         catch (Exception ex)
                         {
@@ -332,7 +335,8 @@ namespace kazadaev
                             contex2.SaveChanges();
                             UpdateInfo();
                             dataGridView1.DataSource = contex2.Roles.ToList();
-                            dataGridView1.Columns[7].Visible = false;
+                            
+
                         }
                         catch (Exception ex)
                         {
@@ -363,6 +367,8 @@ namespace kazadaev
                             UpdateInfo();
                             dataGridView1.DataSource = contex3.Products.ToList();
                             dataGridView1.Columns[5].Visible = false;
+                            dataGridView1.Columns[6].Visible = false;
+
                         }
                         catch (Exception ex)
                         {
@@ -393,6 +399,9 @@ namespace kazadaev
                             contex4.SaveChanges();
                             UpdateInfo();
                             dataGridView1.DataSource = contex4.Orders.ToList();
+                            dataGridView1.Columns[5].Visible = false;
+                            dataGridView1.Columns[6].Visible = false;
+                            dataGridView1.Columns[7].Visible = false;
 
                         }
                         catch (Exception ex)
@@ -424,7 +433,9 @@ namespace kazadaev
                             contex5.SaveChanges();
                             UpdateInfo();
                             dataGridView1.DataSource = contex5.OrderDetails.ToList();
-                            dataGridView1.Columns[3].Visible = false;
+                            dataGridView1.Columns[5].Visible = false;
+                            dataGridView1.Columns[6].Visible = false;
+
 
 
                         }
@@ -456,6 +467,9 @@ namespace kazadaev
                             contex6.SaveChanges();
                             UpdateInfo();
                             dataGridView1.DataSource = contex6.Customers.ToList();
+                            dataGridView1.Columns[5].Visible = false;
+                            dataGridView1.Columns[6].Visible = false;
+
                         }
                         catch (Exception ex)
                         {
@@ -484,6 +498,7 @@ namespace kazadaev
                             contex6.SaveChanges();
                             UpdateInfo();
                             dataGridView1.DataSource = contex6.Categories.ToList();
+                            dataGridView1.Columns[3].Visible = false;
                         }
                         catch (Exception ex)
                         {

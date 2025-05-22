@@ -52,6 +52,7 @@
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Location = new Point(0, 104);
             dataGridView1.Name = "dataGridView1";
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.Size = new Size(801, 349);
             dataGridView1.TabIndex = 0;
             // 

@@ -218,9 +218,9 @@ namespace kazadaev
                     Product.Price = Convert.ToInt32(input3.Text);
                     Product.StockQuantity = Convert.ToInt32(input4.Text);
                     Product.CategoriesIdCategories = Convert.ToInt32(input5.Text);
-                    if (Convert.ToInt32(input5.Text) < 1 || Convert.ToInt32(input5.Text) > 5)
+                    if (Convert.ToInt32(input5.Text) < 1 || Convert.ToInt32(input5.Text) > 3)
                     {
-                        MessageBox.Show("Значение должно быть от 1 до 5", "Ошибка",
+                        MessageBox.Show("Значение должно быть от 1 до 3", "Ошибка",
                                        MessageBoxButtons.OK, MessageBoxIcon.Error);
                         isError = IsError.Y;
                         break;
@@ -237,9 +237,9 @@ namespace kazadaev
                     Role.IdRole = Convert.ToInt32(input.Text);
                     Role.Role1 = input2.Text;
                     Role.UsersIdUsers = Convert.ToInt32(input3.Text);
-                    if (Convert.ToInt32(input3.Text) < 1 || Convert.ToInt32(input3.Text) > 5)
+                    if (Convert.ToInt32(input3.Text) < 1 || Convert.ToInt32(input3.Text) > 3)
                     {
-                        MessageBox.Show("Значение должно быть от 1 до 5", "Ошибка",
+                        MessageBox.Show("Значение должно быть от 1 до 3", "Ошибка",
                                        MessageBoxButtons.OK, MessageBoxIcon.Error);
                         isError = IsError.Y;
                         break;
@@ -257,17 +257,17 @@ namespace kazadaev
                     Order.Orderdate = input2.Text;
                     Order.TotalAmount = Convert.ToInt32(input3.Text);
                     Order.StatusIdStatus = Convert.ToInt32(input4.Text);
-                    if (Convert.ToInt32(input4.Text) < 1 || Convert.ToInt32(input4.Text) > 5)
+                    if (Convert.ToInt32(input4.Text) < 1 || Convert.ToInt32(input4.Text) > 3)
                     {
-                        MessageBox.Show("Значение должно быть от 1 до 5", "Ошибка",
+                        MessageBox.Show("Значение должно быть от 1 до 3", "Ошибка",
                                        MessageBoxButtons.OK, MessageBoxIcon.Error);
                         isError = IsError.Y;
                         break;
                     }
                     Order.CustomersIdCustomers = Convert.ToInt32(input5.Text);
-                    if (Convert.ToInt32(input5.Text) < 1 || Convert.ToInt32(input5.Text) > 5)
+                    if (Convert.ToInt32(input5.Text) < 1 || Convert.ToInt32(input5.Text) > 3)
                     {
-                        MessageBox.Show("Значение должно быть от 1 до 5", "Ошибка",
+                        MessageBox.Show("Значение должно быть от 1 до 3", "Ошибка",
                                        MessageBoxButtons.OK, MessageBoxIcon.Error);
                         isError = IsError.Y;
                         break;
@@ -285,17 +285,17 @@ namespace kazadaev
                     OrderDetail.Quantity = Convert.ToInt32 (input2.Text);
                     OrderDetail.Price = Convert.ToInt32(input3.Text);
                     OrderDetail.ProductIdProduct = Convert.ToInt32(input4.Text);
-                    if (Convert.ToInt32(input4.Text) < 1 || Convert.ToInt32(input4.Text) > 5)
+                    if (Convert.ToInt32(input4.Text) < 1 || Convert.ToInt32(input4.Text) > 3)
                     {
-                        MessageBox.Show("Значение должно быть от 1 до 5", "Ошибка",
+                        MessageBox.Show("Значение должно быть от 1 до 3", "Ошибка",
                                        MessageBoxButtons.OK, MessageBoxIcon.Error);
                         isError = IsError.Y;
                         break;
                     }
                     OrderDetail.OrdersIdOrders = Convert.ToInt32(input5.Text);
-                    if (Convert.ToInt32(input5.Text) < 1 || Convert.ToInt32(input5.Text) > 5)
+                    if (Convert.ToInt32(input5.Text) < 1 || Convert.ToInt32(input5.Text) > 3)
                     {
-                        MessageBox.Show("Значение должно быть от 1 до 5", "Ошибка",
+                        MessageBox.Show("Значение должно быть от 1 до 3", "Ошибка",
                                        MessageBoxButtons.OK, MessageBoxIcon.Error);
                         isError = IsError.Y;
                         break;
@@ -314,9 +314,9 @@ namespace kazadaev
                     Customer.Phone = input3.Text;
                     Customer.Email = input4.Text;
                     Customer.UsersIdUsers = Convert.ToInt32(input5.Text);
-                    if (Convert.ToInt32(input5.Text) < 1 || Convert.ToInt32(input5.Text) > 5)
+                    if (Convert.ToInt32(input5.Text) < 1 || Convert.ToInt32(input5.Text) > 3)
                     {
-                        MessageBox.Show("Значение должно быть от 1 до 5", "Ошибка",
+                        MessageBox.Show("Значение должно быть от 1 до 3", "Ошибка",
                                        MessageBoxButtons.OK, MessageBoxIcon.Error);
                         isError = IsError.Y;
                         break;
