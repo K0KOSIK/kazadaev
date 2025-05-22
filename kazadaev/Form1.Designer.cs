@@ -45,6 +45,7 @@
             // 
             business.AutoSize = true;
             business.Font = new Font("Magneto", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            business.ForeColor = SystemColors.ButtonHighlight;
             business.Location = new Point(226, 53);
             business.Name = "business";
             business.Size = new Size(239, 35);
@@ -53,6 +54,8 @@
             // 
             // textBox1
             // 
+            textBox1.BackColor = Color.FromArgb(128, 128, 255);
+            textBox1.ForeColor = SystemColors.ButtonHighlight;
             textBox1.Location = new Point(226, 201);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(125, 23);
@@ -60,6 +63,8 @@
             // 
             // textBox2
             // 
+            textBox2.BackColor = Color.FromArgb(128, 128, 255);
+            textBox2.ForeColor = SystemColors.ButtonHighlight;
             textBox2.Location = new Point(226, 291);
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(125, 23);
@@ -68,29 +73,36 @@
             // Login
             // 
             Login.AutoSize = true;
+            Login.Font = new Font("Magneto", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Login.ForeColor = SystemColors.ButtonHighlight;
             Login.Location = new Point(226, 167);
             Login.Name = "Login";
-            Login.Size = new Size(37, 15);
+            Login.Size = new Size(73, 24);
             Login.TabIndex = 3;
             Login.Text = "Login";
             // 
             // Password
             // 
             Password.AutoSize = true;
+            Password.Font = new Font("Magneto", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Password.ForeColor = SystemColors.ButtonHighlight;
             Password.Location = new Point(226, 263);
             Password.Name = "Password";
-            Password.Size = new Size(57, 15);
+            Password.Size = new Size(109, 24);
             Password.TabIndex = 4;
             Password.Text = "Password";
             // 
             // button1
             // 
+            button1.BackColor = Color.FromArgb(128, 128, 255);
+            button1.Font = new Font("Forte", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button1.ForeColor = Color.White;
             button1.Location = new Point(420, 230);
             button1.Name = "button1";
-            button1.Size = new Size(75, 48);
+            button1.Size = new Size(95, 57);
             button1.TabIndex = 5;
-            button1.Text = "Вход";
-            button1.UseVisualStyleBackColor = true;
+            button1.Text = "ВХОД";
+            button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
             // panel1
