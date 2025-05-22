@@ -46,6 +46,7 @@
             // 
             // cancellation
             // 
+            cancellation.Anchor = AnchorStyles.Top;
             cancellation.Location = new Point(500, 285);
             cancellation.Name = "cancellation";
             cancellation.Size = new Size(75, 23);
@@ -56,6 +57,7 @@
             // 
             // save_click
             // 
+            save_click.Anchor = AnchorStyles.Top;
             save_click.Location = new Point(597, 285);
             save_click.Name = "save_click";
             save_click.Size = new Size(75, 23);
@@ -66,6 +68,7 @@
             // 
             // input
             // 
+            input.Anchor = AnchorStyles.Top;
             input.Location = new Point(41, 60);
             input.Name = "input";
             input.Size = new Size(100, 23);
@@ -73,6 +76,7 @@
             // 
             // input2
             // 
+            input2.Anchor = AnchorStyles.Top;
             input2.Location = new Point(41, 111);
             input2.Name = "input2";
             input2.Size = new Size(100, 23);
@@ -80,6 +84,7 @@
             // 
             // inputs1
             // 
+            inputs1.Anchor = AnchorStyles.Top;
             inputs1.AutoSize = true;
             inputs1.Location = new Point(41, 42);
             inputs1.Name = "inputs1";
@@ -89,6 +94,7 @@
             // 
             // inputs2
             // 
+            inputs2.Anchor = AnchorStyles.Top;
             inputs2.AutoSize = true;
             inputs2.Location = new Point(41, 93);
             inputs2.Name = "inputs2";
@@ -98,6 +104,7 @@
             // 
             // input3
             // 
+            input3.Anchor = AnchorStyles.Top;
             input3.Location = new Point(234, 60);
             input3.Name = "input3";
             input3.Size = new Size(100, 23);
@@ -105,6 +112,7 @@
             // 
             // input4
             // 
+            input4.Anchor = AnchorStyles.Top;
             input4.Location = new Point(234, 111);
             input4.Name = "input4";
             input4.Size = new Size(100, 23);
@@ -112,6 +120,7 @@
             // 
             // input5
             // 
+            input5.Anchor = AnchorStyles.Top;
             input5.Location = new Point(397, 60);
             input5.Name = "input5";
             input5.Size = new Size(100, 23);
@@ -119,6 +128,7 @@
             // 
             // inputs3
             // 
+            inputs3.Anchor = AnchorStyles.Top;
             inputs3.AutoSize = true;
             inputs3.Location = new Point(234, 42);
             inputs3.Name = "inputs3";
@@ -129,6 +139,7 @@
             // 
             // inputs4
             // 
+            inputs4.Anchor = AnchorStyles.Top;
             inputs4.AutoSize = true;
             inputs4.Location = new Point(234, 93);
             inputs4.Name = "inputs4";
@@ -138,6 +149,7 @@
             // 
             // inputs5
             // 
+            inputs5.Anchor = AnchorStyles.Top;
             inputs5.AutoSize = true;
             inputs5.Location = new Point(397, 42);
             inputs5.Name = "inputs5";
@@ -147,6 +159,7 @@
             // 
             // domainUpDown1
             // 
+            domainUpDown1.Anchor = AnchorStyles.Top;
             domainUpDown1.Location = new Point(41, 111);
             domainUpDown1.Name = "domainUpDown1";
             domainUpDown1.Size = new Size(120, 23);
@@ -154,6 +167,7 @@
             // 
             // domainUpDown2
             // 
+            domainUpDown2.Anchor = AnchorStyles.Top;
             domainUpDown2.Location = new Point(234, 112);
             domainUpDown2.Name = "domainUpDown2";
             domainUpDown2.Size = new Size(120, 23);

@@ -21,7 +21,7 @@ namespace kazadaev
             if (e.KeyCode == Keys.Enter) { button1.PerformClick(); }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private async void button1_Click(object sender, EventArgs e)
         {
             try
             {
@@ -31,19 +31,25 @@ namespace kazadaev
                     .FirstOrDefault();
                 if (user.Role == "Администратор")//
                 {
-                    MessageBox.Show(user.Role);
+                    //MessageBox.Show(user.Role);
+                    lbRole.Text = user.Role;
+                    await Task.Delay(3000);
                     Admin Admin = new Admin(this);
                     Admin.Show();
                 }
-                if (user.Role == "зам директора")
+                if (user.Role == "Зам директора")
                 {
-                    MessageBox.Show(user.Role);
+                    //MessageBox.Show(user.Role);
+                    lbRole.Text = user.Role;
+                    await Task.Delay(3000);
                     Deputy_Director form3 = new Deputy_Director(this);
                     form3.Show();
                 }
-                if (user.Role == "директор")
+                if (user.Role == "Директор")
                 {
-                    MessageBox.Show(user.Role);
+                    //MessageBox.Show(user.Role);
+                    lbRole.Text = user.Role;
+                    await Task.Delay(3000);
                     director form3 = new director(this);
                     form3.Show();
                 }

@@ -44,18 +44,22 @@
             bt_delete = new Button();
             bt_edit = new Button();
             bt_add = new Button();
+            panel2 = new Panel();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             panel1.SuspendLayout();
+            panel2.SuspendLayout();
             SuspendLayout();
             // 
             // dataGridView1
             // 
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.BackgroundColor = Color.FromArgb(192, 192, 255);
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(3, 105);
+            dataGridView1.Dock = DockStyle.Fill;
+            dataGridView1.Location = new Point(0, 104);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.Size = new Size(798, 346);
+            dataGridView1.Size = new Size(800, 346);
             dataGridView1.TabIndex = 0;
             // 
             // panel1
@@ -72,14 +76,16 @@
             panel1.Controls.Add(Role);
             panel1.Controls.Add(Status);
             panel1.Controls.Add(Users);
-            panel1.Location = new Point(3, 1);
+            panel1.Dock = DockStyle.Top;
+            panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(798, 59);
+            panel1.Size = new Size(800, 59);
             panel1.TabIndex = 1;
             panel1.MouseDown += panelTop_MouseDown;
             // 
             // bt_min
             // 
+            bt_min.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             bt_min.BackColor = Color.Navy;
             bt_min.Location = new Point(714, 3);
             bt_min.Name = "bt_min";
@@ -101,6 +107,7 @@
             // 
             // bt_max
             // 
+            bt_max.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             bt_max.BackColor = Color.Green;
             bt_max.Location = new Point(744, 3);
             bt_max.Name = "bt_max";
@@ -111,6 +118,7 @@
             // 
             // bt_exit
             // 
+            bt_exit.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             bt_exit.BackColor = Color.Red;
             bt_exit.Location = new Point(772, 3);
             bt_exit.Name = "bt_exit";
@@ -199,7 +207,7 @@
             // bt_delete
             // 
             bt_delete.BackColor = Color.FromArgb(128, 128, 255);
-            bt_delete.Location = new Point(194, 66);
+            bt_delete.Location = new Point(185, 6);
             bt_delete.Name = "bt_delete";
             bt_delete.Size = new Size(85, 33);
             bt_delete.TabIndex = 7;
@@ -210,7 +218,7 @@
             // bt_edit
             // 
             bt_edit.BackColor = Color.FromArgb(128, 128, 255);
-            bt_edit.Location = new Point(103, 66);
+            bt_edit.Location = new Point(94, 6);
             bt_edit.Name = "bt_edit";
             bt_edit.Size = new Size(85, 33);
             bt_edit.TabIndex = 6;
@@ -221,7 +229,7 @@
             // bt_add
             // 
             bt_add.BackColor = Color.FromArgb(128, 128, 255);
-            bt_add.Location = new Point(12, 66);
+            bt_add.Location = new Point(3, 6);
             bt_add.Name = "bt_add";
             bt_add.Size = new Size(85, 33);
             bt_add.TabIndex = 5;
@@ -229,17 +237,26 @@
             bt_add.UseVisualStyleBackColor = false;
             bt_add.Click += bt_add_Click;
             // 
+            // panel2
+            // 
+            panel2.Controls.Add(bt_add);
+            panel2.Controls.Add(bt_edit);
+            panel2.Controls.Add(bt_delete);
+            panel2.Dock = DockStyle.Top;
+            panel2.Location = new Point(0, 59);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(800, 45);
+            panel2.TabIndex = 11;
+            // 
             // director
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(192, 192, 255);
             ClientSize = new Size(800, 450);
-            Controls.Add(bt_delete);
-            Controls.Add(bt_edit);
-            Controls.Add(bt_add);
-            Controls.Add(panel1);
             Controls.Add(dataGridView1);
+            Controls.Add(panel2);
+            Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "director";
             StartPosition = FormStartPosition.CenterScreen;
@@ -247,6 +264,7 @@
             Load += director_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             panel1.ResumeLayout(false);
+            panel2.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -268,5 +286,6 @@
         private Button bt_min;
         private Button bt_max;
         private Button bt_exit;
+        private Panel panel2;
     }
 }

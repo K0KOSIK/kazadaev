@@ -170,7 +170,7 @@ public partial class Ispr2525KazadaevNvCursovoiContext : DbContext
 
             entity.Property(e => e.IdUsers).HasColumnName("idUsers");
             entity.Property(e => e.Password).HasMaxLength(105);
-            entity.Property(e => e.Role).HasColumnType("enum('Администратор','зам директора','директор')");
+            entity.Property(e => e.Role).HasColumnType("enum('Администратор','Зам директора','Директор')");
             entity.Property(e => e.UsersName).HasMaxLength(105);
         });
 

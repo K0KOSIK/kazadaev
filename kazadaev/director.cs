@@ -954,7 +954,7 @@ namespace kazadaev
                     MessageBox.Show("Не получилось добавить: " + ex.Message);
                 }
             }
-        
-    }
+
+        }
     }
 }

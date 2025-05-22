@@ -135,7 +135,7 @@ namespace kazadaev
             domainUpDown1.Visible = false;
             List<string> statesuser = new List<string>
             {
-                "Администратор", "зам директора", "директор",
+                "Администратор", "Зам директора", "Директор",
             };
             domainUpDown2.Items.Clear();
             domainUpDown2.Items.AddRange(statesuser);
