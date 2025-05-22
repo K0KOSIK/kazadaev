@@ -257,9 +257,9 @@ namespace kazadaev
                     Order.Orderdate = input2.Text;
                     Order.TotalAmount = Convert.ToInt32(input3.Text);
                     Order.StatusIdStatus = Convert.ToInt32(input4.Text);
-                    if (Convert.ToInt32(input4.Text) < 1 || Convert.ToInt32(input4.Text) > 3)
+                    if (Convert.ToInt32(input4.Text) < 1 || Convert.ToInt32(input4.Text) > 2)
                     {
-                        MessageBox.Show("Значение должно быть от 1 до 3", "Ошибка",
+                        MessageBox.Show("Значение должно быть от 1 до 2", "Ошибка",
                                        MessageBoxButtons.OK, MessageBoxIcon.Error);
                         isError = IsError.Y;
                         break;
