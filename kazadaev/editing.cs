@@ -139,6 +139,10 @@ namespace kazadaev
             };
             domainUpDown2.Items.Clear();
             domainUpDown2.Items.AddRange(statesuser);
+            inputs1.Text = "IdUsers";
+            inputs2.Text = "UsersName";
+            inputs3.Text = "Password";
+            inputs4.Text = "Role";
         }
         private void BindStatuses(Models.Status status)
         {
@@ -152,6 +156,8 @@ namespace kazadaev
             inputs5.Visible = false;
             domainUpDown1.Visible = false;
             domainUpDown2.Visible = false;
+            inputs1.Text = "IdStatus";
+            inputs2.Text = "Status";
         }
         private void BindProducts(Product product)
         {
@@ -162,12 +168,16 @@ namespace kazadaev
             input5.DataBindings.Add("Text", product, nameof(product.CategoriesIdCategories));
             domainUpDown1.Visible = false;
             domainUpDown2.Visible = false;
+            inputs1.Text = "IdProduct";
+            inputs2.Text = "Productname";
+            inputs3.Text = "Price";
+            inputs4.Text = "StockQuantity";
+            inputs5.Text = "CategoriesIdCategories";
         }
         private void BindRoles(Role roles)
         {
             input.DataBindings.Add("Text", roles, nameof(roles.IdRole));
             input2.DataBindings.Add("Text", roles, nameof(roles.Role1));
-            //input3.DataBindings.Add("Text", roles, nameof(roles.UsersIdUsers));
             input4.Visible = false;
             input5.Visible = false;
             input3.Visible= false;
@@ -175,13 +185,9 @@ namespace kazadaev
             inputs4.Visible = false;
             inputs5.Visible = false;
             domainUpDown1.Visible = false;
-            domainUpDown2.Visible = false;
-            //List<string> statesuser = new List<string>
-            //{
-            //"Администратор", "зам директора", "директор",
-            //};
-            //domainUpDown1.Items.Clear();
-            //domainUpDown1.Items.AddRange(statesuser);
+            domainUpDown2.Visible = false;;
+            inputs1.Text = "IdRole";
+            inputs2.Text = "Role1";
         }
         private void BindOrders(Order order)
         {
@@ -192,6 +198,11 @@ namespace kazadaev
             input5.DataBindings.Add("Text", order, nameof(order.CustomersIdCustomers));
             domainUpDown1.Visible = false;
             domainUpDown2.Visible = false;
+            inputs1.Text = "IdOrders";
+            inputs2.Text = "Orderdate";
+            inputs3.Text = "TotalAmount";
+            inputs4.Text = "StatusIdStatus";
+            inputs5.Text = "CustomersIdCustomers";
         }
         private void BindOrderDetails(OrderDetail orderdetail)
         {
@@ -202,6 +213,11 @@ namespace kazadaev
             input5.DataBindings.Add("Text", orderdetail, nameof(orderdetail.OrdersIdOrders));
             domainUpDown1.Visible = false;
             domainUpDown2.Visible = false;
+            inputs1.Text = "IdOrderDetails";
+            inputs2.Text = "Quantity";
+            inputs3.Text = "Price";
+            inputs4.Text = "ProductIdProduct";
+            inputs5.Text = "OrdersIdOrders";
         }
         private void BindCustomers(Customer customer)
         {
@@ -212,6 +228,11 @@ namespace kazadaev
             input5.DataBindings.Add("Text", customer, nameof(customer.UsersIdUsers));
             domainUpDown1.Visible = false;
             domainUpDown2.Visible = false;
+            inputs1.Text = "IdCustomers";
+            inputs2.Text = "Name";
+            inputs3.Text = "Phone";
+            inputs4.Text = "Email";
+            inputs5.Text = "UsersIdUsers";
         }
         private void BindCategories(Category category)
         {
@@ -225,6 +246,9 @@ namespace kazadaev
             domainUpDown1.Visible = false;
             domainUpDown2.Visible = false;
             inputs4.Visible = false;
+            inputs1.Text = "IdCategories";
+            inputs2.Text = "CategoriesName";
+            inputs3.Text = "Descriptions";
         }
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
